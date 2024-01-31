@@ -71,6 +71,11 @@ class welpodron_seocities extends CModule
             return false;
         }
 
+        if (!Loader::includeModule('welpodron.core')) {
+            $APPLICATION->ThrowException('Модуль welpodron.core не был найден');
+            return false;
+        }
+
         if (!$this->InstallFiles()) {
             return false;
         }
@@ -120,6 +125,11 @@ class welpodron_seocities extends CModule
             return false;
         }
 
+        if (!Loader::includeModule('welpodron.core')) {
+            $APPLICATION->ThrowException('Модуль welpodron.core не был найден');
+            return false;
+        }
+
         try {
             $connection = Application::getConnection();
 
@@ -144,6 +154,7 @@ class welpodron_seocities extends CModule
     public function UnInstallDb()
     {
         Loader::includeModule($this->MODULE_ID);
+        Loader::includeModule('welpodron.core');
 
         $connection = Application::getConnection();
 

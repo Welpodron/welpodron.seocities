@@ -2,7 +2,6 @@
 
 namespace Welpodron\SeoCities;
 
-require_once __DIR__ . '/types.php';
 // use Bitrix\Main\ORM\Query\QueryHelper;
 // use Bitrix\Main\ORM\Query\Join;
 // use Bitrix\Main\ORM\Fields\Relations\Reference;
@@ -13,9 +12,9 @@ use Bitrix\Main\ORM\Fields\ArrayField;
 use Bitrix\Main\ORM\Data\DataManager;
 use Bitrix\Main\Web\Json;
 use Bitrix\Main\Web\Uri;
+use Bitrix\Main\Loader;
 
-use Welpodron\SeoCities\Types\UrlField;
-use Welpodron\SeoCities\Types\HTMLTextFieldMultiple;
+use Welpodron\Core\ORM\Fields\HTMLTextFieldMultiple;
 
 class SeoTable extends DataManager
 {
@@ -26,6 +25,9 @@ class SeoTable extends DataManager
 
     public static function getMap()
     {
+        if (!Loader::includeModule('welpodron.core')) {
+            throw new Exception("Модуль welpodron.core не был найден");
+        }
 
         return [
             new IntegerField('EXTERNAL_ID', [

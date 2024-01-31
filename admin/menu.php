@@ -1,12 +1,18 @@
 <?
 
 return [
-    'parent_menu' => 'global_menu_settings', // раздел, где выводить пункт меню
-    'text' => 'Настройка параметров модуля welpodron.seocities',
-    // Подпункты
+    'parent_menu' => 'welpodron',
+    'text' => 'SEO города (welpodron.seocities)',
     'items' => [
-        ['text' => 'Города', 'url' => 'welpodron.seocities.cities.items.php?lang=' . LANGUAGE_ID],
-        ['text' => 'SEO', 'url' => 'welpodron.seocities.seo.items.php?lang=' . LANGUAGE_ID],
+        [
+            'text' => 'Города',
+            'url' => 'welpodron.seocities.cities.items.php?lang=' . LANGUAGE_ID,
+            "icon" => "translate_menu_icon",
+        ],
+        [
+            'text' => 'SEO',
+            'url' => 'welpodron.seocities.seo.items.php?lang=' . LANGUAGE_ID,
+            "icon" => "seo_menu_icon",
+        ],
     ],
-
 ];

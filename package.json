@@ -1,0 +1,28 @@
+{
+  "name": "welpodron.seocities",
+  "version": "2.0.0",
+  "scripts": {
+    "build:module": "node build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Welpodron/welpodron.seocities.git"
+  },
+  "keywords": [
+    "bitrix"
+  ],
+  "author": {
+    "name": "Danill Salip",
+    "email": "welpodron@gmail.com",
+    "url": "https://github.com/Welpodron"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Welpodron/welpodron.seocities/issues"
+  },
+  "homepage": "https://github.com/Welpodron/welpodron.seocities#readme",
+  "devDependencies": {
+    "archiver": "^6.0.1",
+    "fast-glob": "^3.3.2"
+  }
+}

@@ -2,8 +2,6 @@
 
 namespace Welpodron\SeoCities;
 
-require_once __DIR__ . '/types.php';
-
 use Bitrix\Main\ORM\Fields\IntegerField;
 use Bitrix\Main\ORM\Fields\StringField;
 use Bitrix\Main\ORM\Fields\TextField;
@@ -14,8 +12,10 @@ use Bitrix\Iblock\IblockTable;
 
 use Bitrix\Main\ORM\Data\DataManager;
 
-use Welpodron\SeoCities\Types\TextFieldMultiple;
-use Welpodron\SeoCities\Types\HTMLTextField;
+use Bitrix\Main\Loader;
+
+use Welpodron\Core\ORM\Fields\HTMLTextField;
+use Welpodron\Core\ORM\Fields\TextFieldMultiple;
 
 class CityTable extends DataManager
 {
@@ -26,6 +26,9 @@ class CityTable extends DataManager
 
     public static function getMap()
     {
+        if (!Loader::includeModule('welpodron.core')) {
+            throw new Exception("Модуль welpodron.core не был найден");
+        }
         // $externalField = new IntegerField('EXTERNAL_ID', [
         //     'title' => 'Внешний ID',
         // ]);
